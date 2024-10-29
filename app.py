@@ -1,14 +1,13 @@
 import customtkinter as ctk
 import threading
-from scapy.all import sniff, IP, TCP, UDP, ICMP, wrpcap, rdpcap
+from scapy.all import sniff, IP, TCP, ICMP, wrpcap, rdpcap
 from scapy.layers.inet import sr1
 import random
 from scapy.sendrecv import send
 from tkinter import filedialog
 import os
 
-# Initialize the CustomTkinter application
-ctk.set_appearance_mode("dark")  # Set the theme for the interface
+ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 
@@ -21,21 +20,18 @@ class PacketSnifferApp(ctk.CTk):
         self.resizable(False, False)
         self.iconbitmap("icon.ico")
 
-        # Sniffing status
         self.sniffing = False
         self.filter = ""
         self.sniffed_packets = []
         self.port_scan_results = ""
 
-        # UI Setup
         self.create_sidebar()
         self.create_display_area()
 
     def create_sidebar(self):
-        # Create sidebar frame
         self.sidebar_frame = ctk.CTkFrame(self, width=200, corner_radius=0)
         self.sidebar_frame.grid(row=0, column=0, sticky="ns")
-        self.sidebar_frame.grid_rowconfigure(7, weight=1)  # Allows for better vertical spacing
+        self.sidebar_frame.grid_rowconfigure(7, weight=1)
 
         # Title label
         title_label = ctk.CTkLabel(self.sidebar_frame, text="CYS7 Tool", font=("Arial", 24))
@@ -81,7 +77,7 @@ class PacketSnifferApp(ctk.CTk):
     def toggle_sniffing(self):
         if not self.sniffing:
             self.sniffing = True
-            self.filter = self.filter_entry.get()  # Get the packet filter from the user input
+            self.filter = self.filter_entry.get()
             self.sniff_button.configure(text="Stop Sniffing Packets")
             self.output_text.insert("end", f"Packet sniffing started with filter: {self.filter}\n")
             threading.Thread(target=self.sniff_packets).start()
