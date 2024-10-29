@@ -1,6 +1,8 @@
 # CYS7 Sniffing & Scanning Application
 
-![](gifs/gify-icon.gif)
+<div align=center>
+  <img src="gifs/gify-icon.gif" width=30%>
+</div>
 
 ## Overview
 
