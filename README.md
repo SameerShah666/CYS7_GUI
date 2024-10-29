@@ -1,5 +1,7 @@
 # CYS7 Sniffing & Scanning Application
 
+![](gifs/gify-icon.gif)
+
 ## Overview
 
 The **CYS7 Sniffing & Scanning Application** is a network analysis tool built using Python. It allows users to sniff network packets, perform port scans, and manage sniffed packet data. The application features a user-friendly GUI created with the `CustomTkinter` library and leverages `Scapy` for network packet manipulation.
