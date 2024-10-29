@@ -6,6 +6,14 @@ import random
 from scapy.sendrecv import send
 from tkinter import filedialog
 import os
+from PIL import Image, ImageTk
+import ctypes
+
+try:
+    myappid = u'Sameer.CYS7.SniffNScan.2'
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except:
+    pass
 
 
 ctk.set_appearance_mode("dark")
@@ -159,4 +167,10 @@ class PacketSnifferApp(ctk.CTk):
 # Run the application
 if __name__ == "__main__":
     app = PacketSnifferApp()
+    try:
+        icon = Image.open("icon.ico")
+        icon = ImageTk.PhotoImage(icon)
+        app.iconphoto(False,icon)
+    except:
+        pass
     app.mainloop()
